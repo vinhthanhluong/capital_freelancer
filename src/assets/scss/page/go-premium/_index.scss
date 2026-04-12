@@ -7,7 +7,7 @@
 //   margin-bottom: 21px;
 //   font-size: rem(23);
 // }
-$yellow-cl: #f5d300;
+$yellow-cl: #e1e2ad;
 
 .p-go {
   .c-mv {
@@ -16,34 +16,46 @@ $yellow-cl: #f5d300;
     &__img {
     }
     &__heading {
+      left: 29px;
       position: absolute;
-      top: 10px;
-      left: 10px;
-      font-size: rem(23);
+      top: 34px;
       font-family: $font-serif;
+      font-weight: 500;
+      font-size: rem(14);
+      line-height: 1.5;
+      letter-spacing: 0.3em;
       @include mq {
-        top: 100px;
-        left: 100px;
-        font-size: rem(40);
+        left: vw(150, 1366);
+        top: vw(113, 1366);
+        line-height: 1.7;
+        letter-spacing: 0.4em;
+        font-size: vw(36, 1366);
       }
     }
   }
 
   .feature {
-    padding: 60px 0;
+    padding: 51px 0 0;
+    @include mq {
+      padding-top: 134px;
+    }
     &__heading {
       text-align: center;
       font-family: $font-serif;
+      font-weight: 500;
       font-size: rem(20);
-      margin-bottom: 50px;
+      letter-spacing: 0.17em;
+      margin-bottom: 54px;
       @include mq {
-        font-size: rem(40);
+        font-size: rem(27);
+        letter-spacing: 0.3em;
+        padding-left: 42px;
+        margin-bottom: 72px;
       }
       span {
         @include mq {
           position: relative;
-          padding-left: 30px;
-          padding-right: 30px;
+          padding: 0 97px;
           &::before,
           &::after {
             content: "";
@@ -51,9 +63,9 @@ $yellow-cl: #f5d300;
             top: 0;
             bottom: 0;
             margin: auto 0;
-            width: 20px;
-            height: 20px;
-            background-color: wheat;
+            width: 61px;
+            height: 1px;
+            background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
           }
 
           &::before {
@@ -62,6 +74,7 @@ $yellow-cl: #f5d300;
 
           &::after {
             right: 0;
+            background-image: linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
           }
         }
       }
@@ -69,7 +82,7 @@ $yellow-cl: #f5d300;
     &__list {
     }
     &__item {
-      margin-bottom: 80px;
+      margin-bottom: 60px;
       display: flex;
       flex-direction: column-reverse;
       &:last-child {
@@ -77,23 +90,47 @@ $yellow-cl: #f5d300;
       }
       @include mq {
         position: relative;
-        margin-bottom: 80px;
+        margin-bottom: vw(112, 1366);
         flex-direction: row;
-        min-height: 500px;
-        @include mq {
-          &:nth-child(odd) {
-            justify-content: flex-end;
-            .feature__img {
-              left: 0;
-            }
-            .feature__content--head {
-              align-items: flex-end;
-            }
+        min-height: vw(420, 1366);
+        &:nth-child(odd) {
+          justify-content: flex-end;
+          .feature__img {
+            left: calc(50% - 50vw);
+          }
+          .feature__content--head {
+            align-items: flex-end;
+          }
 
-            .feature__content--desc {
-              text-align: right;
+          .feature__content--desc {
+            text-align: right;
+            margin-right: -17px;
+          }
+
+          .feature__content--title {
+            text-align: right;
+            margin-right: -17px;
+          }
+
+          .feature__content--stt {
+            &::before {
+              left: unset;
+              right: -42px;
             }
           }
+
+          .feature__content {
+            padding-top: 83px;
+            padding-right: 45px;
+          }
+        }
+        &:nth-child(1) {
+          .feature__img {
+            width: vw(975, 1366);
+          }
+        }
+        &:nth-child(2) {
+          margin-bottom: vw(130, 1366);
         }
       }
     }
@@ -106,135 +143,188 @@ $yellow-cl: #f5d300;
         margin-right: 0;
         position: absolute;
         top: 0;
-        right: 0;
+        right: calc(50% - 50vw);
         z-index: -1;
-        width: 800px;
+        width: vw(756, 1366);
       }
     }
     &__content {
-      margin-bottom: 30px;
+      margin-bottom: 19px;
       @include mq {
         margin-bottom: 0;
+        padding-top: 33px;
+        padding-left: 60px;
+      }
+      @include mq("ld") {
+        padding-left: 143px;
       }
     }
     &__content--head {
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 50px;
+      margin-bottom: 38px;
       color: $yellow-cl;
+
       @include mq {
-        margin-bottom: 20px;
         flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 38px;
       }
     }
     &__content--stt {
-      font-size: rem(20);
+      font-family: $font-en;
+      font-size: rem(22);
+      letter-spacing: 0.09em;
       position: relative;
       background-color: #000;
-      margin-right: 10px;
+      margin-right: 20px;
       &::before {
         content: "";
         position: absolute;
         top: 0;
-        left: -20px;
+        left: -15px;
         bottom: 0;
         margin: auto 0;
-        width: 75px;
-        height: 75px;
+        width: 60px;
+        height: 60px;
 
         border-radius: 100%;
         border: 2px solid $yellow-cl;
         z-index: -1;
       }
       @include mq {
-        margin-bottom: 30px;
+        margin-bottom: 71px;
+        margin-right: 0;
+        font-size: vw(42, 1366);
         &::before {
-          left: unset;
-          right: -20px;
+          left: -52px;
+          width: 112px;
+          height: 112px;
         }
       }
     }
     &__content--title {
-      font-size: rem(22);
+      font-family: $font-serif;
+      font-size: rem(16);
       text-align: center;
+      letter-spacing: 0.3em;
       @include mq {
-        font-size: rem(30);
+        font-size: rem(31);
         text-align: left;
       }
     }
     &__content--desc {
+      font-family: $font-serif;
       text-align: center;
+      font-size: rem(11);
+      letter-spacing: 0.05em;
+      line-height: 1.8;
       @include mq {
         text-align: left;
+        font-size: rem(16);
+        letter-spacing: 0.19em;
+        line-height: 2.4;
       }
     }
     &__content--note {
       text-align: center;
-      margin-top: 10px;
+      margin-top: 5px;
+      font-size: rem(9);
+      letter-spacing: 0.17em;
+      line-height: 1.6;
       @include mq {
         text-align: left;
+        font-size: rem(13);
+        margin-top: 23px;
+        letter-spacing: 0.22em;
       }
     }
   }
 
   .usage {
-    padding: 40px 0;
+    padding: 55px 0 56px;
+    @include mq {
+      padding: 138px 0 125px;
+    }
 
     &__heading {
       text-align: center;
-      font-size: 20px;
-      font-weight: 600;
+      font-family: $font-serif;
+      font-size: rem(20);
+      letter-spacing: 0.25em;
+      font-weight: 500;
       position: relative;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      @include mq {
+        font-size: rem(27);
+        margin-bottom: 65px;
+      }
 
       span {
         @include mq {
           position: relative;
-          padding: 0 12px;
+          padding: 0 100px;
           &::before,
           &::after {
             content: "";
             position: absolute;
-            top: 50%;
-            width: 40px;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            width: 61px;
             height: 1px;
-            background: #fff;
+            background-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
           }
 
           &::before {
-            left: -45px;
+            left: 0;
           }
 
           &::after {
-            right: -45px;
+            right: 0;
+            background-image: linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
           }
         }
       }
     }
 
     &__desc {
+      font-family: $font-serif;
       text-align: center;
-      margin-bottom: 32px;
+      margin-bottom: 59px;
+      font-size: rem(11);
+      line-height: 1.7;
+      letter-spacing: 0.145em;
+      @include mq {
+        font-size: rem(18);
+        line-height: 2.1;
+        letter-spacing: 0.2em;
+        margin-bottom: 61px;
+      }
     }
 
     &__list {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 59px;
+      padding: 0 26px;
       @include mq {
         flex-direction: row;
+        padding: 0;
+        gap: clamped(26, 47, 768, 1366);
       }
     }
 
     &__item {
+      width: 100%;
     }
 
     &__item--img {
       display: block;
-      margin-bottom: 12px;
+      margin-bottom: 19px;
       @include mq {
-        margin-bottom: 20px;
+        margin-bottom: 31px;
       }
 
       img {
@@ -245,30 +335,48 @@ $yellow-cl: #f5d300;
     }
 
     &__item--detail {
+      font-size: rem(11);
+      letter-spacing: -0.1px;
+      line-height: 1.7;
+      @include mq {
+        font-size: rem(16);
+      }
     }
   }
 
   .app {
-    background-color: wheat;
-    padding: 50px 0;
+    background-color: #e1e2ad;
+    padding: 58px 0 62px;
     color: #000;
     @include mq {
-      padding: 100px 0;
+      padding: 131px 0 125px;
     }
 
     &__heading {
     }
     &__heading--title {
       text-align: center;
+      font-family: $font-serif;
       font-size: rem(20);
+      letter-spacing: 0.25em;
+      margin-bottom: 18px;
       @include mq {
-        font-size: rem(30);
+        font-size: rem(27);
+        margin-bottom: 34px;
       }
     }
     &__heading--w {
+      display: flex;
+      flex-direction: column;
       @include mq {
         position: relative;
-        padding: 0 40px;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        // padding: 0 77px;
+        padding: 0 57px 0 77px;
+        width: fit-content;
+        margin: 0 auto;
         &::before,
         &::after {
           content: "";
@@ -276,36 +384,50 @@ $yellow-cl: #f5d300;
           top: 0;
           bottom: 0;
           margin: auto 0;
-          width: 30px;
-          height: 10px;
-          background: #000;
+          width: 32px;
+          height: 40px;
+          background: center/contain no-repeat;
         }
 
         &::before {
           left: 0;
+          background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" viewBox="0 0 32.85 40.09"><defs><style> .cls-1 { fill: none; stroke: %23010101; stroke-miterlimit: 10; stroke-width: .71px; } </style></defs><g id="Layer_1-2" data-name="Layer 1"><g><polyline class="cls-1" points="32.59 39.83 12.8 20.04 32.59 .25"/><polyline class="cls-1" points="20.29 39.83 .5 20.04 20.29 .25"/></g></g></svg>');
         }
 
         &::after {
           right: 0;
+          background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" viewBox="0 0 32.85 40.09"><defs><style> .cls-1 { fill: none; stroke: %23010101; stroke-miterlimit: 10; stroke-width: .71px; } </style></defs><g id="Layer_1-2" data-name="Layer 1"><g><polyline class="cls-1" points=".25 39.83 20.04 20.04 .25 .25"/><polyline class="cls-1" points="12.55 39.83 32.34 20.04 12.55 .25"/></g></g></svg>');
         }
       }
     }
     &__heading--line {
-      font-size: rem(20);
+      font-size: rem(18);
+      margin-top: 21px;
+      letter-spacing: 0.1em;
       @include mq {
-        font-size: rem(30);
+        font-size: rem(27);
+        margin-top: 0;
+        margin-left: 18px;
+      }
+      span {
         position: relative;
-        padding: 0 40px;
+        padding: 0 50px 0 48px;
+        @include mq {
+          padding: 0 86px;
+        }
         &::before,
         &::after {
           content: "";
           position: absolute;
-          top: 0;
+          top: 2px;
           bottom: 0;
           margin: auto 0;
-          width: 30px;
+          width: 40px;
           height: 1px;
-          background: #000;
+          background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 50%, #000 100%);
+          @include mq {
+            width: 64px;
+          }
         }
 
         &::before {
@@ -314,21 +436,36 @@ $yellow-cl: #f5d300;
 
         &::after {
           right: 0;
+          background-image: linear-gradient(-90deg, rgba(0, 0, 0, 0) 50%, #000 100%);
         }
       }
     }
     &__heading--desc {
-      font-size: rem(12);
+      font-family: $font-serif;
+      font-size: rem(11);
       line-height: 1.6;
+      letter-spacing: 0.1em;
+      text-align: center;
+      @include mq {
+        font-size: rem(18);
+      }
     }
 
     &__download {
       text-align: center;
-      margin-bottom: 40px;
+      margin-top: 10px;
+      margin-bottom: 23px;
+      @include mq {
+        margin-top: 25px;
+        margin-bottom: 74px;
+      }
       &--logo {
         display: block;
-        margin: 0 auto 16px;
-        width: 120px;
+        margin: 0 auto 12px;
+        width: 144px;
+        @include mq {
+          margin-bottom: 28px;
+        }
 
         img {
           width: 100%;
@@ -337,10 +474,17 @@ $yellow-cl: #f5d300;
       }
 
       &--text {
-        font-size: rem(13);
-        line-height: 1.7;
-        margin-bottom: 16px;
-        white-space: pre-line;
+        font-family: $font-serif;
+        font-size: rem(11);
+        line-height: 1.8;
+        letter-spacing: 0.1em;
+        margin-bottom: 13px;
+        @include mq {
+          font-size: rem(15);
+          line-height: 2.05;
+          letter-spacing: 0.2em;
+          margin-bottom: 21px;
+        }
       }
 
       &--img {
@@ -351,6 +495,9 @@ $yellow-cl: #f5d300;
           width: 180px;
           display: block;
           margin: 0 auto;
+          @include mq {
+            width: 416px;
+          }
         }
       }
     }
@@ -358,65 +505,186 @@ $yellow-cl: #f5d300;
     .c-flow {
       display: flex;
       flex-direction: column;
-      gap: 32px;
+      gap: 64px;
+      padding: 0px 28px 0 24px;
+      @include mq {
+        flex-direction: row;
+        padding: 0;
+        gap: 34px;
+        gap: clamped(20, 34, 768, 1366);
+      }
 
       &__item {
-        background: #2b2b2b;
+        background-image: linear-gradient(180deg, #2f2f2f 0%, #1a1a1a 100%);
         color: #fff;
-        border-radius: 12px;
-        padding: 24px 16px;
+        border-radius: 5px;
+        padding: 38px 16px 46px;
         text-align: center;
         position: relative;
+        width: 100%;
+        @include mq {
+          border-radius: 8px;
+          padding: 32px 10px 30px;
+          &:nth-child(3) {
+            .c-flow__title {
+              margin-bottom: 20px;
+            }
+            .c-flow__desc {
+              margin-bottom: 30px;
+            }
+          }
+        }
+        &::before {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: -42px;
+          margin: 0 auto;
+          width: 35px;
+          height: 19px;
+          background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_2" data-name="Layer 2" viewBox="0 0 35.1 18.24"><defs><style> .cls-1 { fill: none; stroke: url(%23_名称未設定グラデーション_16); stroke-miterlimit: 10; stroke-width: .98px; } </style><linearGradient id="_名称未設定グラデーション_16" data-name="名称未設定グラデーション 16" x1="-4870.11" y1="-484.9" x2="-4870.11" y2="-509.72" gradientTransform="translate(3109.58 3796.03) rotate(45)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="%231a1a1a"/><stop offset=".99" stop-color="%232f2f2f"/></linearGradient></defs><g id="main"><polyline class="cls-1" points="34.76 .35 17.55 17.55 .35 .35"/></g></svg>')
+            center/contain no-repeat;
+          @include mq {
+            bottom: 0;
+            top: 0;
+            left: unset;
+            right: -23px;
+            width: 13px;
+            height: 25px;
+            margin: auto 0;
+            right: clamped(-13, -23, 768, 1366);
+            width: clamped(8, 13, 768, 1366);
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_2" data-name="Layer 2" viewBox="0 0 13.27 25.53"><defs><style> .cls-1 { fill: none; stroke: url(%23_名称未設定グラデーション_16); stroke-miterlimit: 10; stroke-width: .71px; } </style><linearGradient id="_名称未設定グラデーション_16" data-name="名称未設定グラデーション 16" x1="-1242.36" y1="-169.24" x2="-1242.36" y2="-187.29" gradientTransform="translate(1005.03 -739.66) rotate(-45)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="%231a1a1a"/><stop offset=".99" stop-color="%232f2f2f"/></linearGradient></defs><g id="section"><polyline class="cls-1" points=".25 .25 12.77 12.77 .25 25.28"/></g></svg>');
+          }
+        }
+        &:last-child {
+          &::before {
+            display: none;
+          }
+        }
       }
 
       &__item--stt {
+        width: 125px;
         font-size: rem(12);
-        margin-bottom: 8px;
+        margin-bottom: 26px;
         position: relative;
         display: inline-block;
         padding: 0 20px;
 
-        &::before,
-        &::after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          width: 20px;
-          height: 1px;
-          background: #fff;
-        }
-
-        &::before {
-          left: 0;
-        }
-
-        &::after {
-          right: 0;
+        padding: 4px 0 8px;
+        border: 0px solid rgba($color: #fff, $alpha: 0.3);
+        border-width: 1px 0;
+        font-size: rem(16);
+        font-family: $font-en;
+        line-height: 1;
+        span {
+          font-size: 125%;
+          @include mq {
+            margin-left: 3px;
+          }
         }
       }
 
       &__title {
-        font-size: rem(18);
-        font-weight: 600;
-        margin-bottom: 12px;
+        font-family: $font-serif;
+        font-size: rem(23);
+        font-weight: 500;
+        margin-bottom: 29px;
       }
 
       &__desc {
-        font-size: rem(13);
+        font-family: $font-serif;
+        font-size: rem(15);
         line-height: 1.7;
-        margin-bottom: 16px;
+        margin-bottom: 43px;
+        letter-spacing: 0.05em;
+        @include mq {
+          font-size: clamped(13, 15, 768, 1024);
+        }
 
         span {
-          font-weight: 600;
+          color: $yellow-cl;
         }
       }
 
       &__img {
         img {
-          width: 180px;
+          width: 150px;
           margin: 0 auto;
           display: block;
         }
+      }
+    }
+  }
+  .app2 {
+    @include mq {
+      padding: 128px 0 125px;
+    }
+
+    .app__heading {
+      margin-bottom: 59px;
+      @include mq {
+        margin-bottom: 45px;
+      }
+    }
+
+    .c-flow {
+      gap: 69px;
+    }
+
+    .c-flow__item {
+      padding-top: 28px;
+      padding-bottom: 26px;
+      min-height: 248px;
+      @include mq {
+        min-height: 270px;
+      }
+      &:nth-child(2) {
+        .c-flow__desc {
+          letter-spacing: 0;
+        }
+      }
+    }
+
+    .c-flow__item--stt {
+      margin-bottom: 19px;
+      @include mq {
+        margin-bottom: 23px;
+      }
+    }
+
+    .c-flow__title {
+      margin-bottom: 18px;
+      @include mq {
+        margin-bottom: 22px;
+      }
+    }
+
+    .c-flow__desc {
+      margin-bottom: 0;
+      a {
+        display: block;
+        color: $yellow-cl;
+        font-size: rem(30);
+        width: fit-content;
+        margin: 0 auto;
+        @include mq {
+          letter-spacing: 0.14em;
+          font-size: clamped(22, 30, 768, 1366);
+        }
+      }
+    }
+
+    .app__note {
+      font-size: rem(11);
+      font-weight: 500;
+      padding: 0 28px 0 24px;
+      margin-top: 20px;
+      line-height: 1.5;
+      @include mq {
+        padding: 0;
       }
     }
   }
