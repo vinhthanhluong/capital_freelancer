@@ -1,0 +1,66 @@
+<%
+const _baseUrl = (typeof locals.baseUrl !== 'undefined') ? locals.baseUrl : '';
+
+const path = file.path.toString().replace(/\\/g, '/');
+let assetsDir = './';
+let array = path.split('src/')[1].split('/');
+
+for (let i = 1; i < array.length; i++) {
+  assetsDir += "../";
+}
+
+let canonicalPath = path.split('src/')[1].replace(/\.ejs$/, '.html');
+
+if (canonicalPath.endsWith('index.html')) {
+  canonicalPath = canonicalPath.replace('index.html', '');
+}
+
+const canonicalUrl = _baseUrl + '/' + canonicalPath;
+%>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no, address=no, email=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="<%= file.data.title %>">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%= canonicalUrl %>">
+  <meta property="og:image" content>
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="<% if(file.data.description){ %><%= file.data.description %><% }else{%><%= jsonData.newsListJson.description %><% }%>">
+  <meta name="description" content="<% if(file.data.description){ %><%= file.data.description %><% }else{%><%= jsonData.newsListJson.description %><% }%>">
+  <meta name="keywords" content="<% if(file.data.keyword){ %><%= file.data.keyword %><% }else{%><%= jsonData.newsListJson.keyword %><% }%>">
+  <link rel="canonical" href="<%= canonicalUrl %>" />
+  <link rel="shortcut icon" type="image/x-icon" href="<%= assetsDir %>assets/images/common/favicon.ico" />
+  <!-- ↑↑ Meta ↑↑ -->
+  <title><%= file.data.title %></title>
+  <!-- ↑↑ Title ↑↑ -->
+  <link rel="stylesheet" href="<%= assetsDir %>assets/css/common.css">
+  <% if(file.data.vendercss){file.data.vendercss.forEach(cssItem => {%><link rel="stylesheet" href="<%= assetsDir %>assets/vender/<%= cssItem %>.css">
+  <% });}%><% if(file.data.css){file.data.css.forEach(cssItem => {%><link rel="stylesheet" href="<%= assetsDir %>assets/css/<%= cssItem %>.css">
+  <% });}%>
+  <!-- ↑↑ Css ↑↑ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="wrapper" class="body-wrapper">
+    <%- include(`${layoutsDir}/_header`,{assetsDir}); %>
+    <!-- ↑↑ Header ↑↑ -->
+    <%- contents %>
+    <!-- ↑↑ Content ↑↑ -->
+    <%- include(`${layoutsDir}/_footer`,{assetsDir}); %>
+    <script src="<%= assetsDir %>assets/js/jquery-3.5.1.min.js"></script>
+    <script src="<%= assetsDir %>assets/js/in-view.min.js"></script>
+    <script src="<%= assetsDir %>assets/js/common.js"></script>
+    <% if(file.data.venderjs){ file.data.venderjs.forEach(jsItem => { %><script src="<%= assetsDir %>assets/vender/<%= jsItem %>.js"></script>
+    <% });}%><% if(file.data.js){ file.data.js.forEach(jsItem => { %><script src="<%= assetsDir %>assets/js/<%= jsItem %>.js"></script>
+    <% }); } %>
+    <!-- ↑↑ Script ↑↑ -->
+  </div>
+</body>
+</html>

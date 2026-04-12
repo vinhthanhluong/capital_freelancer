@@ -1,0 +1,17 @@
+@use "sass:math";
+@use "../global" as *;
+
+.u-cl__white {
+  color: #fff !important;
+}
+.u-cl__black {
+  color: #000 !important;
+}
+
+.u-cl__main {
+  color: var(--cl-primary);
+}
+
+.u-cl__red {
+  color: var(--cl-red);
+}

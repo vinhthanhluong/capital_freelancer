@@ -1,0 +1,199 @@
+@use "sass:math";
+@use "../global/" as *;
+@use "../extend";
+
+/*!
+component > Button
+------------------------------
+*/
+
+.c-btn {
+    &__primary {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        width: 275px;
+        height: 44px;
+        max-width: 100%;
+        border: 1px solid var(--cl-white);
+
+        @include mq {
+            width: 310px;
+            gap: 11px;
+        }
+
+        > span {
+            font-family: $font-serif;
+            font-size: rem(10);
+            font-weight: 500;
+            letter-spacing: 0.08em;
+
+            @include mq {
+                font-size: rem(11);
+            }
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            width: 71px;
+            height: 5px;
+            mask: url('../images/common/icon_arr.svg') center/100% auto no-repeat;
+            background-color: currentColor;
+
+            @include mq {
+                width: 81px;
+                height: 6px;
+            }
+        }
+    }
+
+    &__submit {
+        padding: 8px 20px;
+        margin-inline: auto;
+        width: 275px;
+        max-width: 100%;
+        min-height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #9f8b4b;
+        border-radius: 4px;
+        font-size: rem(16);
+        font-weight: 700;
+        line-height: 1;
+        color: var(--cl-white);
+        text-align: center;
+        transition: .4s ease;
+
+        @include mq {
+            padding: 10px 20px;
+            width: 500px;
+            min-height: 70px;
+            font-size: rem(27);
+        }
+
+        @include hover {
+            &:hover {
+                opacity: .8;
+            }
+        }
+    }
+}
+
+.c-totop {
+    position: fixed;
+    bottom: 29px;
+    right: 29px;
+    display: none;
+    transform: translateY(20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s ease;
+    width: 21px;
+    aspect-ratio: 21/19;
+    background: url('../images/common/icon_totop.svg') center/100% auto no-repeat;
+    mix-blend-mode: difference;
+    cursor: pointer;
+    z-index: 5;
+
+    @include hover {
+        &:hover {
+            opacity: .8;
+        }
+    }
+
+    @include mq {
+        display: block;
+    }
+
+    &.show {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+.c-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-block: 16px 18px;
+    display: flex;
+    background: var(--cl-secondary);
+    transform: translateY(30px);
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s ease;
+    z-index: 10;
+
+    &.show {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @include mq {
+        display: none;
+    }
+
+    &__item {
+        min-height: 50px;
+
+        &:not(:last-child) {
+            border-right: 1px solid #231815;
+        }
+
+        &:nth-child(1) {
+            width: width-percent(171, 375);
+        }
+
+        &:nth-child(2) {
+            width: width-percent(119, 375);
+        }
+
+        &:nth-child(3) {
+            flex-grow: 1;
+        }
+
+        &--link {
+            padding-inline: 10px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+
+            .txt {
+                font-size: rem(9);
+                font-weight: 500;
+                line-height: 1;
+                color: #231815;
+                text-align: center;
+            }
+
+            &.contact {
+                .icon {
+                    margin-bottom: 10px;
+                    width: 30px;
+                }
+            }
+
+            &.recruit {
+                .icon {
+                    margin-bottom: 10px;
+                    width: 23px;
+                }
+            }
+
+            &.totop {
+                .icon {
+                    margin-bottom: 14px;
+                    width: 21px;
+                }
+            }
+        }
+    }
+}

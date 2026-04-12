@@ -1,0 +1,84 @@
+@use "sass:math";
+/*!
+global > function
+------------------------------
+*/
+$baseFontSize: 16;
+
+@function rem($pixels) {
+    @return math.div($pixels, $baseFontSize) * 1rem;
+}
+
+$baseWodth: 1600;
+
+@function width($pixels) {
+    @return math.div($pixels, $baseFontSize) * 100vw;
+}
+
+@function width-percent($element-width, $container-width) {
+    $percent: math.div($element-width, $container-width) * 100%;
+    @return #{$percent};
+}
+
+@function spacingSp($space, $ratio: .6) {
+    $value: $space * $ratio;
+    $rounded: round($value);
+    @return calc($rounded * 1px);
+}
+
+@function vw($v, $w: 375) {
+    $vw: math.div($v, $w) * 100vw;
+    @return #{$vw};
+}
+
+@function vh($v, $h: 375) {
+    $vh: math.div($v, $h) * 100vh;
+    @return #{$vh};
+}
+
+@function clamped($min-px, $max-px, $min-bp, $max-bp) {
+    $slope: math.div($max-px - $min-px, $max-bp - $min-bp);
+    $slope-vw: $slope * 100;
+    $intercept-rems: rem($min-px - $slope * $min-bp);
+    $min-rems: rem($min-px);
+    $max-rems: rem($max-px);
+    @return clamp(#{$min-rems},
+        #{$slope-vw}vw + #{$intercept-rems},
+        #{$max-rems});
+}
+
+@function clamped-negative($start, $end, $min-bp, $max-bp) {
+  $slope: math.div($end - $start, $max-bp - $min-bp);
+  $intercept: $start - $slope * $min-bp;
+
+  $min: math.min($start, $end);
+  $max: math.max($start, $end);
+
+  @return clamp(
+    #{$min}px,
+    #{$slope * 100}vw + #{$intercept}px,
+    #{$max}px
+  );
+}
+
+$w-origin: 1440;
+$w-mobile: 768;
+$p2r: 0.0625rem;
+
+@function fn-liq($v1, $v2, $b1: $w-mobile, $b2: $w-origin) {
+    $screen: $b2 - $b1;
+    $space: $v2 - $v1;
+    $unit: math.div($space, $screen);
+
+    @if ($v2 < $v1) {
+        @return clamp(#{$v2 * $p2r},
+            calc(#{$v1 * $p2r} + #{$unit} * (100vw - #{$b1 * 1px})),
+            #{$v1 * $p2r});
+    }
+
+    @else {
+        @return clamp(#{$v1 * $p2r},
+            calc(#{$v1 * $p2r} + #{$unit} * (100vw - #{$b1 * 1px})),
+            #{$v2 * $p2r});
+    }
+}

@@ -1,0 +1,481 @@
+@use "sass:math";
+@use "../../global" as *;
+@use "../../extend";
+
+.p-contact {
+    background: var(--cl-white);
+    color: var(--cl-primary);
+    font-size: rem(18);
+
+    .container {
+        max-width: 964px;
+
+        @include mq(sp) {
+            padding-inline: 50px;
+        }
+    }
+
+    &__head {
+        padding-block: 52px 40px;
+
+        @include mq {
+            padding-block: 90px 79px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        color: #231815;
+        font-weight: 500;
+
+        @include mq {
+            margin-bottom: 21px;
+        }
+
+        &--sub {
+            margin-bottom: 15px;
+            font-size: rem(15);
+            letter-spacing: 0.05em;
+
+            @include mq {
+                margin-bottom: 21px;
+                font-size: rem(23);
+            }
+        }
+
+        &--main {
+            font-size: rem(18);
+            white-space: nowrap;
+
+            @include mq {
+                font-size: rem(30);
+            }
+        }
+    }
+
+    &__desc {
+        margin-bottom: 20px;
+        font-size: rem(13);
+
+        @include mq {
+            margin-bottom: 23px;
+            font-size: rem(19);
+        }
+
+        @include mq(sp) {
+            line-height: 1.6;
+        }
+    }
+
+    &__note {
+        margin-bottom: 50px;
+        color: var(--cl-red);
+        font-size: rem(15);
+
+        @include mq {
+            margin-bottom: 55px;
+            font-size: rem(19);
+        }
+
+        .c-required {
+            margin-inline: 0 8px;
+            font-size: rem(13);
+
+            @include mq {
+                margin-inline: 3px 9px;
+                font-size: rem(16);
+            }
+
+            @include mq(sp) {
+                padding: 1px 6px 2px;
+            }
+        }
+    }
+
+    &__form {
+        padding-bottom: 60px;
+
+        @include mq {
+            padding-bottom: 90px;
+        }
+
+        .form {
+            &__list {
+                display: grid;
+                grid-template-columns: 1fr;
+
+                @include mq {
+                    grid-template-columns: width-percent(275, 914) calc(100% - width-percent(275, 914));
+                    border-top: 1px solid var(--cl-border);
+                }
+
+                &--sub {
+                    @include mq {
+                        border-inline: 1px solid var(--cl-border);
+                        grid-template-columns: clamped(142, 160, 768, 1366) 1fr;
+                    }
+
+                    .form__label, .form__field {
+                        @include mq {
+                            min-height: 127px;
+                        }
+                    }
+
+                    .form__label {
+                        @include mq {
+                            padding-inline: clamped(15, 30, 768, 1366) 15px;
+                        }
+
+                        &:last-of-type {
+                            letter-spacing: -0.08em;
+                        }
+                    }
+
+                    .form__field {
+                        @include mq {
+                            padding-block: 39px;
+                            padding-inline: 22px;
+                        }
+
+                        &:has(.form__field--postcode) {
+                            @include mq {
+                                padding-bottom: 10px;
+                            }
+                        }
+
+                        .form__txt {
+                            @include mq {
+                                margin-top: 6px;
+                            }
+                        }
+
+                        select {
+                            max-width: none;
+                        }
+                    }
+                }
+            }
+
+            &__label, &__field {
+                @include mq {
+                    padding-block: 30px 28px;
+                    min-height: 136px;
+                    border-bottom: 1px solid var(--cl-border);
+                }
+            }
+
+            &__label {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: rem(12);
+                line-height: 1.4;
+                font-weight: 500;
+                color: #231815;
+
+                @include mq {
+                    justify-content: space-between;
+                    padding-inline: clamped(20, 35, 768, 1366) clamped(20, 32, 768, 1366);
+                    background: #ededed;
+                    font-size: rem(20);
+                }
+
+                @include mq(sp) {
+                    border-bottom: 0;
+                    margin-bottom: 6px;
+                }
+            }
+
+            &__field {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                color: #2d2d2d;
+
+                @include mq {
+                    padding-inline: 27px 0;
+                }
+
+                @include mq(sp) {
+                    &:not(:last-child) {
+                        margin-bottom: 24px;
+                    }
+                }
+
+                &--dob {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 6px;
+
+                    @include mq {
+                        gap: 12px;
+                        max-width: 495px;
+                    }
+
+                    .dob-item {
+                        width: calc((100% - 12px) / 3);
+
+                        @include mq {
+                            width: calc((100% - 24px) / 3);
+                        }
+                    }
+                }
+
+                &--radio {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 7px;
+
+                    @include mq {
+                        gap: 12px;
+                        max-width: 407px;
+                    }
+
+                    .radio-button {
+                        display: none;
+
+                        &:checked + label {
+                            background: #2d2d2d;
+                            color: var(--cl-white);
+                            pointer-events: none;
+                        }
+                    }
+
+                    .radio-item {
+                        width: calc((100% - 7px) / 2);
+
+                        @include mq {
+                            width: calc(50% - 6px);
+                        }
+
+                        label {
+                            padding: 5px;
+                            display: block;
+                            width: 100%;
+                            min-height: 26px;
+                            font-size: rem(11);
+                            text-align: center;
+                            border: 1px solid #2d2d2d;
+                            border-radius: 2px;
+                            transition: .4s ease;
+
+                            @include mq {
+                                padding: 10px 12px 12px;
+                                min-height: 46px;
+                                font-size: rem(18);
+                                border-radius: 5px;
+                            }
+
+                            @include hover {
+                                &:hover {
+                                    opacity: .8;
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                &--postcode {
+                    display: flex;
+                    gap: 8px;
+
+                    @include mq {
+                        gap: clamped(10, 17, 768, 1366);
+                    }
+
+                    .postcode-input {
+                        @include mq {
+                            width: width-percent(232, 405);
+                        }
+
+                        @include mq(sp) {
+                            flex-grow: 1;
+                        }
+                    }
+
+                    .postcode-button {
+                        padding: 5px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        min-height: 26px;
+                        min-width: 86px;
+                        background: #231815;
+                        border-radius: 2px;
+                        font-size: rem(10);
+                        font-weight: 500;
+                        text-align: center;
+                        color: var(--cl-white);
+                        transition: .4s ease;
+                        cursor: pointer;
+
+                        @include mq {
+                            flex-grow: 1;
+                            padding: 10px 10px 11px;
+                            min-height: 46px;
+                            min-width: 132px;
+                            font-size: clamped(15, 18, 768, 1366);
+                            border-radius: 4px;
+                        }
+
+                        @include hover {
+                            &:hover {
+                                opacity: .8;
+                            }
+                        }
+                    }
+                }
+
+                &--note {
+                    @include mq {
+                        padding-block: 47px 30px;
+                    }
+
+                    .form__txt {
+                        @include mq {
+                            margin-top: 15px;
+                        }
+                    }
+                }
+
+                input, select, textarea {
+                    font-size: rem(13);
+                    border: 1px solid #2d2d2d;
+                    min-height: 26px;
+                    width: 100%;
+
+                    @include mq {
+                        font-size: rem(18);
+                        min-height: 46px;
+                    }
+
+                    &:focus {
+                        outline: none;
+                    }
+                }
+
+                input {
+                    padding: 4px 8px;
+                    width: 100%;
+
+                    @include mq {
+                        padding: 5px 14px 6px;
+                        max-width: 495px;
+                    }
+
+                    &::placeholder {
+                        color: #b2b2b2;
+                    }
+
+                    &[type='tel'] {
+                        @include mq {
+                            max-width: 249px;
+                        }
+                    }
+                }
+
+                select {
+                    padding: 4px 20px 4px 8px;
+                    background: url('../images/common/icon_arr_select.svg') calc(100% - 7px) 50%/11px auto no-repeat;
+                    cursor: pointer;
+
+                    @include mq {
+                        padding: 5px 34px 5px 14px;
+                        max-width: 249px;
+                        background-size: 20px auto;
+                        background-position: calc(100% - 12px) 50%;
+                    }
+
+                    &[name='job'] {
+                        @include mq(sp) {
+                            width: width-percent(179, 275);
+                        }
+                    }
+                }
+
+                textarea {
+                    padding: 4px 8px;
+                    min-height: 150px;
+
+                    @include mq {
+                        padding: 11px;
+                        min-height: 129px;
+                    }
+
+                    @include mq {
+                       padding: 11px;
+                        min-height: 129px; 
+                    }
+                }
+            }
+
+            &__note {
+                margin-block: 15px 48px;
+                font-size: rem(11);
+                line-height: 1.5;
+                letter-spacing: -0.035em;
+
+                @include mq {
+                    margin-block: 15px 76px;
+                    font-size: rem(18);
+                }
+            }
+
+            &__txt {
+                margin-top: 3px;
+                font-size: rem(11);
+                line-height: 1.55;
+                font-weight: 500;
+
+                &--right {
+                    margin-left: auto;
+                }
+
+                @include mq {
+                    margin-top: 8px;
+                    font-size: rem(16);
+                }
+
+                .u-cl__red {
+                    @include mq(sp) {
+                        letter-spacing: -0.055em;
+                    }
+                }
+
+                a {
+                    color: #005bac;
+                    text-decoration: underline;
+                    text-underline-offset: 3px;
+
+                    @include mq {
+                        text-underline-offset: 4px;
+                    }
+
+                    @include hover {
+                        &:hover {
+                            text-decoration: none;
+                        }
+                    }
+
+                    @include mq(sp) {
+                        font-size: rem(14);
+                        letter-spacing: -0.018em;
+                    }
+                }
+            }
+        }
+    }
+
+    .mfp_err {
+        margin-top: 8px;
+        display: block;
+        font-size: rem(12);
+        color: var(--cl-red);
+
+        @include mq {
+            font-size: rem(14);
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@use "../global" as *;
+
+.u-txt__left {
+  text-align: left !important;
+}
+
+.u-txt__right {
+  text-align: right !important;
+}
+
+.u-txt__center {
+  text-align: center !important;
+}
+
+.u-txt__semi {
+  font-weight: 600;
+}

@@ -1,0 +1,99 @@
+@use "sass:math";
+@use "../global/" as *;
+
+// font-weight
+@for $prop from 1 to 10 {
+  %fw-#{ $prop * 100} {
+    font-weight: $prop * 100;
+  }
+}
+
+// font-size
+
+%fz-10 {
+  font-size: rem(10);
+}
+
+%fz-11 {
+  font-size: rem(10);
+
+  @include mq("md") {
+    font-size: rem(11);
+  }
+}
+
+%fz-12 {
+  font-size: rem(10);
+
+  @include mq("md") {
+    font-size: rem(12);
+  }
+}
+
+%fz-13 {
+  font-size: rem(10);
+
+  @include mq("md") {
+    font-size: rem(13);
+  }
+}
+
+%fz-14 {
+  font-size: rem(12);
+
+  @include mq("md") {
+    font-size: rem(14);
+  }
+}
+
+%fz-15 {
+  font-size: rem(13);
+
+  @include mq("md") {
+    font-size: rem(15);
+  }
+}
+
+%fz-16 {
+  font-size: rem(14);
+
+  @include mq("md") {
+    font-size: rem(16);
+  }
+}
+
+%fz-17 {
+  font-size: rem(14);
+
+  @include mq("md") {
+    font-size: rem(17);
+  }
+}
+
+%fz-18 {
+  font-size: rem(14);
+
+  @include mq("md") {
+    font-size: rem(18);
+  }
+}
+
+%fz-19 {
+  font-size: rem(15);
+
+  @include mq("md") {
+    font-size: rem(19);
+  }
+}
+
+%fz-20 {
+  font-size: rem(16);
+
+  @include mq("md") {
+    font-size: rem(20);
+  }
+}
+
+%palt {
+  font-feature-settings: "palt";
+}

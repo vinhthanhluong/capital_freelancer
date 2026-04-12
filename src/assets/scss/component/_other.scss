@@ -1,0 +1,21 @@
+@use "sass:math";
+@use "../global/" as *;
+@use "../extend";
+
+.c-required {
+    padding: 1px 4px;
+    flex-shrink: 0;
+    align-self: center;
+    display: inline-block;
+    background: var(--cl-white);
+    font-size: rem(8);
+    font-weight: 500;
+    line-height: 1;
+    color: var(--cl-red);
+    border: 1px solid var(--cl-red);
+
+    @include mq {
+        padding: 1px 8px 3px;
+        font-size: rem(16);
+    }
+}

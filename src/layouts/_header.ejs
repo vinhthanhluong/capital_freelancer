@@ -1,0 +1,32 @@
+<% 
+    const logoTag = file.data.page === 'top' ? 'h1' : 'div'; 
+%>
+
+<header class="c-header">
+    <div class="c-header__inner">
+        <<%= logoTag %> class="c-header__logo">
+            <a href="<%= assetsDir %>" class="c-header__logo--link">
+                <img src="<%= assetsDir %>assets/images/common/logo.svg" alt="キャピタルアセットプラス">
+            </a>
+        </<%= logoTag %>>
+        <nav class="c-nav">
+            <ul class="c-nav__menu">
+                <li class="c-nav__menu--item">
+                    <a href="<%= assetsDir %>">TOP</a>
+                </li>
+                <li class="c-nav__menu--item">
+                    <a href="">GO PREMIUMとは</a>
+                </li>
+                <li class="c-nav__menu--item">
+                    <a href="">採用情報</a>
+                </li>
+                <li class="c-nav__menu--item">
+                    <a href="">会社概要</a>
+                </li>
+                <li class="c-nav__menu--item">
+                    <a href="">お問い合わせ・応募はこちら</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>

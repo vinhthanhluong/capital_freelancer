@@ -1,0 +1,48 @@
+@use "sass:math";
+@use "../global/" as *;
+@use "../extend";
+
+/*!
+component > Title
+------------------------------
+*/
+
+.c-title {
+    &__h1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        font-family: $font-serif;
+        font-size: rem(20);
+        font-weight: 500;
+        line-height: 1.4;
+        letter-spacing: 0.18em;
+        color: var(--cl-brown);
+        
+        @include mq {
+            font-size: rem(29);
+            gap: 22px;
+        }
+
+        &::before, &::after {
+            content: '';
+            margin-top: 3px;
+            display: block;
+            width: 40px;
+            height: 1px;
+
+            @include mq {
+                width: 61px;
+            }
+        }
+
+        &::before {
+            background: linear-gradient(90deg,rgba(255, 255, 255, 0) 0%, rgba(66, 33, 11, 1) 100%);
+        }
+
+        &::after {
+            background: linear-gradient(-90deg,rgba(255, 255, 255, 0) 0%, rgba(66, 33, 11, 1) 100%);
+        }
+    }
+}

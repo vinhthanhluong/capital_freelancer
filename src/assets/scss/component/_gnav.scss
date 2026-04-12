@@ -1,0 +1,37 @@
+@use "sass:math";
+@use "../global" as *;
+@use "../extend";
+
+.c-nav {
+    display: none;
+    
+    @include mq(ld) {
+        display: block;
+    }
+
+    &__menu {
+        display: flex;
+
+        @include mq {
+            padding-right: 4px;
+            padding-top: 1px;
+        }
+
+        &--item {
+            border-left: 1px solid var(--cl-white);
+
+            &:last-child {
+                border-right: 1px solid var(--cl-white);
+            }
+
+            a {
+                padding: 1px clamped(15, 23, 768, 1366);
+                display: block;
+                font-size: clamped(10, 12, 768, 1366);
+                font-weight: 500;
+                line-height: 1;
+                letter-spacing: 0.149em;
+            }
+        }
+    }
+}
