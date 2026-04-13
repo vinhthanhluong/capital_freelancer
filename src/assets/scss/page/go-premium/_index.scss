@@ -2,11 +2,6 @@
 @use "../../global" as *;
 @use "../../extend";
 
-// font-size: rem(18);
-// @include mq {
-//   margin-bottom: 21px;
-//   font-size: rem(23);
-// }
 $yellow-cl: #e1e2ad;
 
 .p-go {
@@ -344,6 +339,451 @@ $yellow-cl: #e1e2ad;
     }
   }
 
+  .price {
+    padding: 60px 0 53px;
+    @include mq {
+      padding: 128px 0 130px;
+    }
+    &__heading {
+      font-size: rem(20);
+      text-align: center;
+      font-family: $font-serif;
+      margin-bottom: 54px;
+      letter-spacing: 0.2em;
+      @include mq {
+        margin-bottom: 58px;
+        font-size: rem(27);
+        padding-left: 15px;
+        letter-spacing: 0.25em;
+        span {
+          position: relative;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 0 99px;
+          width: fit-content;
+          margin: 0 auto;
+          &::before,
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            width: 32px;
+            height: 40px;
+            background: center/contain no-repeat;
+            filter: brightness(0) invert(1);
+          }
+
+          &::before {
+            left: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" viewBox="0 0 32.85 40.09"><defs><style> .cls-1 { fill: none; stroke: %23010101; stroke-miterlimit: 10; stroke-width: .71px; } </style></defs><g id="Layer_1-2" data-name="Layer 1"><g><polyline class="cls-1" points="32.59 39.83 12.8 20.04 32.59 .25"/><polyline class="cls-1" points="20.29 39.83 .5 20.04 20.29 .25"/></g></g></svg>');
+          }
+
+          &::after {
+            right: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" viewBox="0 0 32.85 40.09"><defs><style> .cls-1 { fill: none; stroke: %23010101; stroke-miterlimit: 10; stroke-width: .71px; } </style></defs><g id="Layer_1-2" data-name="Layer 1"><g><polyline class="cls-1" points=".25 39.83 20.04 20.04 .25 .25"/><polyline class="cls-1" points="12.55 39.83 32.34 20.04 12.55 .25"/></g></g></svg>');
+          }
+        }
+      }
+    }
+    &__tbl {
+      @include mq("sp") {
+        padding: 0 25px;
+
+        table,
+        thead,
+        tbody,
+        tr,
+        td,
+        th {
+          display: block;
+          width: 100%;
+        }
+        thead {
+          display: none;
+        }
+        tr {
+          &:last-child {
+            td {
+              padding-bottom: 0;
+            }
+          }
+          &:nth-child(2) {
+            td {
+              padding-top: 17px;
+              padding-bottom: 43px;
+            }
+          }
+          &:nth-child(3) {
+            td {
+              padding-bottom: 32px;
+            }
+          }
+          &:nth-child(4) {
+            td {
+              padding-top: 19px;
+              padding-bottom: 40px;
+            }
+          }
+          &:nth-child(5) {
+            td {
+              padding-top: 19px;
+              padding-bottom: 40px;
+            }
+          }
+          &:nth-child(6) {
+            td {
+              padding-top: 19px;
+            }
+          }
+        }
+
+        th {
+          background-color: #595757;
+          text-align: center;
+        }
+
+        .price__list {
+          margin-top: 4px;
+          &--t1 {
+            margin-bottom: 10px;
+          }
+
+          li {
+            margin-bottom: 8px;
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
+      }
+
+      @include mq {
+        table {
+        }
+
+        thead {
+          td,
+          th {
+            background-color: #595757;
+          }
+          th {
+            border-right: 1px solid #000;
+            letter-spacing: 0.5em;
+            padding-left: 20px;
+          }
+          td {
+            text-align: center;
+            padding: 13px 48px 12px 10px;
+            font-weight: 400;
+          }
+        }
+
+        tbody {
+          th {
+            border-right: 1px solid #595757;
+          }
+        }
+
+        tr {
+          &:nth-child(2) {
+            td {
+              padding-top: 26px;
+              padding-bottom: 28px;
+            }
+          }
+          &:nth-child(3) {
+            td {
+              padding-top: 26px;
+              padding-bottom: 41px;
+            }
+          }
+          &:nth-child(4) {
+            td {
+              padding-bottom: 27px;
+              padding-top: 25px;
+            }
+          }
+          &:nth-child(5) {
+            td {
+              padding-bottom: 23px;
+              padding-top: 20px;
+            }
+          }
+          &:nth-child(6) {
+            td {
+              padding: 22px 0px 20px 40px;
+            }
+          }
+        }
+
+        th {
+          text-align: center;
+        }
+      }
+
+      table {
+        margin-bottom: 43px;
+        @include mq {
+          margin-bottom: 23px;
+        }
+      }
+
+      th {
+        font-weight: 500;
+        font-size: rem(15);
+        padding: 9px 10px;
+        color: $yellow-cl;
+        letter-spacing: 0.1em;
+        @include mq {
+          font-size: rem(18);
+          width: 241px;
+          font-weight: 400;
+          border-bottom: 1px solid #5f5f5f;
+          vertical-align: middle;
+          padding-left: 8px;
+        }
+      }
+      td {
+        font-size: rem(14);
+        line-height: 1.7;
+        font-weight: 700;
+        text-align: center;
+        padding: 13px 0 39px;
+        letter-spacing: 0.05em;
+        @include mq {
+          font-size: rem(18);
+          border-bottom: 1px solid #5f5f5f;
+          padding: 18px 10px 24px;
+          letter-spacing: 0px;
+          font-weight: 400;
+          letter-spacing: 0.03em;
+        }
+      }
+
+      .tl {
+        font-size: rem(18);
+        color: $yellow-cl;
+        @include mq {
+          font-size: rem(24);
+          margin-left: 2px;
+        }
+      }
+
+      .price__list {
+        margin-bottom: 12px;
+        @include mq {
+          padding: 0 clamped(20, 58, 768, 1366);
+          margin-bottom: 18px;
+          li {
+            display: flex;
+          }
+
+          &--t1 {
+            margin-right: 10px;
+            font-size: clamped(14, 18, 768, 1366);
+          }
+          &--dot {
+            margin-right: clamped(7, 17, 768, 1366);
+            font-size: clamped(13, 18, 768, 1366);
+          }
+
+          &--t2 {
+            font-size: clamped(14, 18, 768, 1366);
+          }
+
+          .tl {
+            font-size: 133.3333333333% !important;
+          }
+        }
+      }
+
+      .price__note {
+        font-size: rem(11);
+        font-weight: 400;
+        line-height: 1.46;
+        text-align: left;
+        li {
+          display: inline;
+          &::before {
+            content: "※";
+          }
+        }
+
+        @include mq {
+          padding: 0 clamped(20, 60, 768, 1366);
+
+          li {
+            display: block;
+            padding-left: 12px;
+            position: relative;
+            line-height: 1.65;
+            &::before {
+              position: absolute;
+              top: 0;
+              left: 0;
+            }
+          }
+        }
+      }
+
+      .price__tx {
+        text-align: left;
+        line-height: 1.6;
+        @include mq {
+          font-size: rem(15);
+          line-height: 2.15;
+          letter-spacing: 0px;
+        }
+      }
+
+      .price-nte {
+        li {
+          position: relative;
+          display: inline;
+          &::before {
+            content: "※";
+          }
+          @include mq {
+            font-size: rem(11);
+            display: block;
+            padding-left: 15px;
+            position: relative;
+            letter-spacing: 0.015em;
+            line-height: 1.5;
+            margin-bottom: 2px;
+            &:last-child {
+              margin-bottom: 0;
+            }
+            &::before {
+              position: absolute;
+              top: 0;
+              left: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .service {
+    background-color: #595757;
+    padding: 60px 0 56px;
+    @include mq {
+      padding: 153px 0 130px;
+    }
+    &__heading {
+      font-size: rem(20);
+      text-align: center;
+      font-family: $font-serif;
+      margin-bottom: 57px;
+      letter-spacing: 0.2em;
+      @include mq {
+        margin-bottom: 31px;
+        font-size: rem(27);
+        padding-left: 15px;
+        letter-spacing: 0.25em;
+        span {
+          position: relative;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          padding: 0 67px;
+          width: fit-content;
+          margin: 0 auto;
+          &::before,
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto 0;
+            width: 32px;
+            height: 40px;
+            background: center/contain no-repeat;
+            filter: brightness(0) invert(1);
+          }
+
+          &::before {
+            left: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" viewBox="0 0 32.85 40.09"><defs><style> .cls-1 { fill: none; stroke: %23010101; stroke-miterlimit: 10; stroke-width: .71px; } </style></defs><g id="Layer_1-2" data-name="Layer 1"><g><polyline class="cls-1" points="32.59 39.83 12.8 20.04 32.59 .25"/><polyline class="cls-1" points="20.29 39.83 .5 20.04 20.29 .25"/></g></g></svg>');
+          }
+
+          &::after {
+            right: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" viewBox="0 0 32.85 40.09"><defs><style> .cls-1 { fill: none; stroke: %23010101; stroke-miterlimit: 10; stroke-width: .71px; } </style></defs><g id="Layer_1-2" data-name="Layer 1"><g><polyline class="cls-1" points=".25 39.83 20.04 20.04 .25 .25"/><polyline class="cls-1" points="12.55 39.83 32.34 20.04 12.55 .25"/></g></g></svg>');
+          }
+        }
+      }
+    }
+    &__tbl {
+      @include mq("sp") {
+        padding: 0 25px;
+
+        table,
+        thead,
+        tbody,
+        tr,
+        td,
+        th {
+          display: block;
+          width: 100%;
+        }
+        tr {
+          &:last-child {
+            td {
+              padding-bottom: 0;
+            }
+          }
+        }
+
+        th {
+          background-color: #000;
+          text-align: center;
+        }
+      }
+
+      @include mq {
+        padding: 0 42px;
+        table {
+        }
+      }
+
+      th {
+        font-weight: 500;
+        font-size: rem(15);
+        padding: 9px 10px;
+        color: $yellow-cl;
+        @include mq {
+          width: 170px;
+          font-weight: 400;
+          border-bottom: 1px solid #5f5f5f;
+          vertical-align: middle;
+          padding-left: 8px;
+        }
+      }
+      td {
+        font-size: rem(14);
+        line-height: 1.8;
+        font-weight: 700;
+        text-align: center;
+        padding: 18px 0 54px;
+        letter-spacing: 0.05em;
+        @include mq {
+          font-size: rem(15);
+          border-bottom: 1px solid #5f5f5f;
+          text-align: left;
+          padding: 29px 11px 25px;
+          letter-spacing: 0px;
+          font-weight: 400;
+          letter-spacing: 0.03em;
+        }
+      }
+    }
+  }
+
   .app {
     background-color: #e1e2ad;
     padding: 58px 0 62px;
@@ -373,7 +813,6 @@ $yellow-cl: #e1e2ad;
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        // padding: 0 77px;
         padding: 0 57px 0 77px;
         width: fit-content;
         margin: 0 auto;
@@ -424,7 +863,6 @@ $yellow-cl: #e1e2ad;
           margin: auto 0;
           width: 40px;
           height: 1px;
-          background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 50%, #000 100%);
           @include mq {
             width: 64px;
           }
@@ -432,6 +870,7 @@ $yellow-cl: #e1e2ad;
 
         &::before {
           left: 0;
+          background-image: linear-gradient(90deg, rgba(0, 0, 0, 0) 50%, #000 100%);
         }
 
         &::after {
