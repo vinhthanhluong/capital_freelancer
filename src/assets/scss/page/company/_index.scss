@@ -1,0 +1,199 @@
+@use "sass:math";
+@use "../../global" as *;
+@use "../../extend";
+
+// font-size: rem(18);
+// @include mq {
+//   margin-bottom: 21px;
+//   font-size: rem(23);
+// }
+// font-family: $font-serif;
+
+$yellow-cl: #e1e2ad;
+
+.p-company {
+  .c-mv {
+    position: relative;
+    z-index: 0;
+    &__img {
+    }
+    &__heading {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      width: fit-content;
+      height: fit-content;
+      text-align: center;
+      @include mq {
+        bottom: 33px;
+      }
+      &--en {
+        font-family: $font-en;
+        font-size: rem(21);
+        letter-spacing: 0.25em;
+        margin-bottom: 11px;
+        text-shadow:
+          0 0 2px rgba($color: #000000, $alpha: 0.16),
+          0 0 2px rgba($color: #000000, $alpha: 0.16);
+        @include mq {
+          font-size: rem(36);
+          margin-bottom: 18px;
+        }
+      }
+      &--jp {
+        font-family: $font-serif;
+        font-size: rem(11);
+        letter-spacing: 0.25em;
+        @include mq {
+          font-size: rem(18);
+        }
+      }
+    }
+  }
+
+  .company {
+    background-color: #fff;
+    color: #000;
+    padding: 51px 0;
+    @include mq {
+      padding: 133px 0 129px;
+    }
+    .container {
+    }
+    &__heading {
+      font-family: $font-serif;
+      text-align: center;
+      margin-bottom: 42px;
+      @include mq {
+        margin-bottom: 125px;
+      }
+      &--tt {
+        font-size: rem(20);
+        letter-spacing: 0.3em;
+        margin-bottom: 39px;
+        @include mq {
+          font-size: rem(28);
+          margin-bottom: 52px;
+        }
+        span {
+          @include mq {
+            position: relative;
+          }
+        }
+      }
+      &--desc {
+        font-size: rem(11);
+        line-height: 1.8;
+        letter-spacing: 0.07em;
+        @include mq {
+          font-size: rem(16);
+          line-height: 2.4;
+          letter-spacing: 0.1em;
+        }
+      }
+    }
+    &__tbl {
+      @include mq("sp") {
+        padding: 0 25px;
+
+        table,
+        thead,
+        tbody,
+        tr,
+        td,
+        th {
+          display: block;
+          width: 100%;
+        }
+        tr {
+          &:last-child {
+            td {
+              padding-bottom: 0;
+            }
+          }
+        }
+      }
+
+      @include mq {
+        padding: 0 42px;
+        table {
+        }
+      }
+
+      th {
+        background-color: #ededed;
+        font-weight: 500;
+        font-size: rem(15);
+        text-align: center;
+        padding: 9px 10px;
+        @include mq {
+          font-size: rem(18);
+          width: 187px;
+          font-weight: 400;
+          border-bottom: 1px solid #5f5f5f;
+          vertical-align: middle;
+        }
+      }
+      td {
+        font-size: rem(13);
+        line-height: 1.8;
+        font-weight: 700;
+        text-align: center;
+        padding: 18px 0 39px;
+        letter-spacing: 0.05em;
+        @include mq {
+          font-size: rem(18);
+          border-bottom: 1px solid #5f5f5f;
+          text-align: left;
+          padding: 29px 33px 27px;
+          letter-spacing: 0px;
+        }
+        @include mq('ld'){
+          padding-left: 53px;
+        }
+      }
+    }
+    &__dot {
+      @include mq("sp") {
+        li {
+          text-align: left;
+          position: relative;
+          padding-left: 8px;
+          font-size: rem(12);
+          letter-spacing: 0.1em;
+          line-height: 1.6;
+          margin-bottom: 1px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          &::before {
+            content: "";
+            position: absolute;
+            top: 6px;
+            left: 3px;
+            width: 2px;
+            height: 2px;
+            background-color: #000;
+            border-radius: 100%;
+          }
+        }
+      }
+
+      @include mq {
+        margin-top: -2px;
+        margin-bottom: 8px;
+        li {
+          line-height: 1.3;
+          margin-bottom: 8px;
+          letter-spacing: 0.07em;
+          &:last-child{
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
